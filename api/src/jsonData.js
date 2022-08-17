@@ -1,4 +1,4 @@
-module.exports({
+module.exports = {
   panes: [
     {
       name: "Pan de trigo",
@@ -228,4 +228,4 @@ module.exports({
     }
 
   ],
-});
+};
