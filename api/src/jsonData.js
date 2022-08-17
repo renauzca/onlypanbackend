@@ -1,3 +1,4 @@
+
 module.exports =  {
   panes:[
   {
@@ -227,4 +228,3 @@ module.exports =  {
     type:"factura"
   }
 ]}
-
