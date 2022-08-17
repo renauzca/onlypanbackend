@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routeProduct = require('./routes/Products');
-const routeUser = require("./routes/User");
+const routeUser = require("./routes/User"); 
 
 require('./db.js');
 
