@@ -10,6 +10,6 @@ const getProduct = require("./buscarProducto")
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-router.get("product/", getProduct.buscar)
+router.get("/", getProduct.buscar)
 
 module.exports = router;

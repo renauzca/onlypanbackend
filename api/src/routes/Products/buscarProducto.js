@@ -2,9 +2,9 @@ const json = require("../../jsonData")
 const {Product} = require("../../models/Product")
 
 const buscar = async(req,res)=>{
-    let info = json()
+    let info = json
     console.log(info)
-    return info
+    res.send(info)
 }
 
 module.exports = {
