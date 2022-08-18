@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routeProduct = require('./routes/Products');
-const routeUser = require("./routes/User");
+const routeUser = require("./routes/User"); 
 
 require('./db.js');
 
@@ -21,10 +21,14 @@ server.use((req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
-});
+}); 
 
 
+<<<<<<< HEAD
+server.use('/product', routeProduct); //estas son las que van
+=======
 server.use('/product', routeProduct);
+>>>>>>> 7dd1fec86e391870666062e8ab0e128bee152bc0
 server.use('/user', routeUser);
 
 

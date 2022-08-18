@@ -13,7 +13,7 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
 
 });
 const basename = path.basename(__filename);
-
+ 
 const modelDefiners = [];
 
 fs.readdirSync(path.join(__dirname, '/models'))
