@@ -24,7 +24,11 @@ server.use((req, res, next) => {
 }); 
 
 
+<<<<<<< HEAD
 server.use('/product', routeProduct); //estas son las que van
+=======
+server.use('/product', routeProduct);
+>>>>>>> 7dd1fec86e391870666062e8ab0e128bee152bc0
 server.use('/user', routeUser);
 
 
