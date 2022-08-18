@@ -6,7 +6,7 @@ const router = Router();
 
 
 
-const getProduct = require("./buscarProducto")
+const getProduct = require("./ShearchProduct")
 const postProduct = require("./postProduct")
 
 
