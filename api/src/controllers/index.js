@@ -12,4 +12,4 @@ const addProductDB = async () => {
 
 module.exports = {
   addProductDB,
-};
+}; 
