@@ -24,7 +24,7 @@ server.use((req, res, next) => {
 });
 
 
-server.use('/product', routeProduct); 
+server.use('/product', routeProduct); //estas son las que van
 server.use('/user', routeUser);
 
 
