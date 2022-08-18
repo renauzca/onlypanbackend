@@ -1,14 +1,19 @@
 const { Product } = require("../../db");
+const {Op} = require("sequelize")
 
 const buscar = async (req, res) => {
   try {
     let { name } = req.query;
 
     if (name) {
-      const query = await Product.findAll();
-      console.log()
-      let busqueda = query.filter(nombre => nombre.name.toLowerCase().includes(name.toLowerCase()))
-      res.send(busqueda);
+      const query = await Product.findAll({
+        where:{
+          name:{
+            [Op.iLike]:"%" + name + "%"
+          }
+        }
+      })
+      res.send(query)
     } else {
       const allProduct = await Product.findAll();
       res.send(allProduct);
