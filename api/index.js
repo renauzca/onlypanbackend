@@ -3,8 +3,8 @@ const { conn } = require("./src/db.js");
 const { addProductDB } = require("./src/controllers/index.js");
 
 conn.sync({ force: false }).then(() => {
-  server.listen(3001, () => {
+  server.listen(3001, async () => {
     await addProductDB();
-    console.log('%s listening at 3001'); 
+    console.log("%s listening at 3001");
   });
 });
