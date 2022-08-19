@@ -3,10 +3,12 @@ const {Op} = require("sequelize")
 module.exports = {
     crear : async(req,res)=>{
         try {
+
         const {name,price,image,description,type,quantity} = req.body
         const product = await Product.findAll({where:{name:{[Op.iLike]:"%" + name + "%"}}})
            
         if(product.length === 0){
+            
             await Product.create({name,price,image,description,type,quantity})
             res.send("congratulation")
         }else{
