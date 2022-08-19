@@ -3,7 +3,6 @@ const {Product} = require('../../db');
 
 const filterByType = async(req, res) =>{
     const {name} = req.query;
-    console.log(name)
     try {
         const allProducts = await Product.findAll({
             where:{type:name}
