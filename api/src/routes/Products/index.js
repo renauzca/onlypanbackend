@@ -6,14 +6,17 @@ const postProduct = require("./postProduct");
 const deleteProduct = require("./deleteProduct");
 const filterByType = require("./filterByType");
 const filterByPrice = require("./filterByPrice");
+const filterbyTypePrices = require("./filterbyTypePrice");
 const updateProduct = require("./updateProduct")
 
 router.get("/price", filterByPrice.filterByPrice)
 router.get("/type", filterByType.filterByType)
+router.get("/typ", filterbyTypePrices.filterbyTypePrice)
 router.get("/", getProduct.buscar);
 router.get("/:id", getProduct.id);
 router.post("/", postProduct.crear);
 router.put("/delete/:id", deleteProduct.deleteProduct);
 router.put("/update/:id", updateProduct.updateProduct);
+
 
 module.exports = router;
