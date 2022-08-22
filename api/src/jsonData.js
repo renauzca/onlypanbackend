@@ -5,7 +5,8 @@ module.exports = {
       description:
         "La harina de trigo es la más utilizada para la elaboración de pan. De hecho, algunos panes elaborados con otras harinas suelen llevar también algún porcentaje de trigo. Lo podemos tomar blanco o integral. La principal diferencia en el proceso de elaboración del pan blanco y el integral es que para este último se utiliza harina sin refinar, lo que hace que este tipo de pan tenga un mayor valor nutritivo, siendo más rico en fibra, vitaminas y minerales. Además, al tener más fibra fomenta una mayor sensación de saciedad. No obstante, la cantidad de calorías aportadas en ambos casos suele ser muy similar. 100 g de pan blanco tienen unas 260 kcal frente a las 230 kcal del pan integral.",
       price: 170,
-      image: "https://www.bing.com/th?id=AMMS_06d8c5b5adaf950ede4ed1b62c2eb5e9&w=206&h=115&rs=2&qlt=80&o=6&cdv=1&pid=16.1",
+      image:
+        "https://www.bing.com/th?id=AMMS_06d8c5b5adaf950ede4ed1b62c2eb5e9&w=206&h=115&rs=2&qlt=80&o=6&cdv=1&pid=16.1",
       type: "pan",
     },
     {

@@ -1,5 +1,5 @@
 const { Product } = require("../../db");
-const {Op} = require("sequelize")
+const { Op } = require("sequelize");
 
 const buscar = async (req, res) => {
   try {
@@ -7,13 +7,13 @@ const buscar = async (req, res) => {
 
     if (name) {
       const query = await Product.findAll({
-        where:{
-          name:{
-            [Op.iLike]:"%" + name + "%"
-          }
-        }
-      })
-      res.send(query)
+        where: {
+          name: {
+            [Op.iLike]: "%" + name + "%",
+          },
+        },
+      });
+      res.send(query);
     } else {
       const allProduct = await Product.findAll();
       res.send(allProduct);

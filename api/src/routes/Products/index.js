@@ -1,25 +1,23 @@
-const { Router } = require('express');
+const { Router } = require("express");
 const router = Router();
 
-const getProduct = require("./ShearchProduct");
-const postProduct = require("./postProduct");
-const deleteProduct = require("./deleteProduct");
-const filterByType = require("./filterByType");
-const filterByPrice = require("./filterByPrice");
+const { id, buscar } = require("./ShearchProduct");
+const { deleteProduct } = require("./deleteProduct");
+const { filterByType } = require("./filterByType");
+const { filterByPrice } = require("./filterByPrice");
+const { rangePrice } = require("./rangePrices");
+const { crear } = require("./postProduct");
+const { updateProduct } = require("./updateProduct");
+const { filterbyTypePrice } = require("./filterbyTypePrice");
 
-const updateProduct = require("./updateProduct")
-
-const filterbyTypePrices = require("./filterbyTypePrice");
-
-
-router.get("/price", filterByPrice.filterByPrice)
-router.get("/type", filterByType.filterByType)
-router.get("/typ", filterbyTypePrices.filterbyTypePrice)
-router.get("/", getProduct.buscar);
-router.get("/:id", getProduct.id);
-router.post("/", postProduct.crear);
-router.put("/delete/:id", deleteProduct.deleteProduct);
-router.put("/update/:id", updateProduct.updateProduct);
-
+router.get("/range", rangePrice);
+router.get("/price", filterByPrice);
+router.get("/type", filterByType);
+router.get("/typ", filterbyTypePrice);
+router.get("/", buscar);
+router.get("/:id", id);
+router.post("/", crear);
+router.put("/delete/:id", deleteProduct);
+router.put("/update/:id", updateProduct);
 
 module.exports = router;

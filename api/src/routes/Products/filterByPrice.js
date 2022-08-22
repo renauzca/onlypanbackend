@@ -5,8 +5,8 @@ const filterByPrice = async (req, res) => {
   try {
     let productSort =
       name === "min"
-        ? await Product.findAll({order: [["price", "ASC"]]})
-        : await Product.findAll({order: [["price", "DESC"]]});
+        ? await Product.findAll({ order: [["price", "ASC"]] })
+        : await Product.findAll({ order: [["price", "DESC"]] });
     res.send(productSort);
   } catch (error) {
     res.status(404).send(error);
