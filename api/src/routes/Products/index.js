@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
 
-const { id, buscar } = require("./ShearchProduct");
+const { id, buscar } = require("./searchProduct");
 const { deleteProduct } = require("./deleteProduct");
 const { filterByType } = require("./filterByType");
 const { filterByPrice } = require("./filterByPrice");
