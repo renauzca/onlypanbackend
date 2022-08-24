@@ -3,7 +3,7 @@ const json = require("../../jsonData");
 
 const getTypes = async (req, res) => {
   try {
-    const product = await json.panes;
+    const product = json.panes;
     const productType = product.map(t=> t.type)
     const allProduct = new Set(productType)
     let all = []

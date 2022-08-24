@@ -5,21 +5,30 @@ const buscar = async (req, res) => {
   try {
     let { name } = req.query;
 
-    if (name) {
-      const query = await Product.findAll({
-        where: {
-          name: {
-            [Op.iLike]: "%" + name + "%",
-          },
+    const query = await Product.findAll({
+      where: {
+        name: {
+          [Op.iLike]: "%" + name + "%",
         },
-      });
-      res.send(query);
+      },
+    });
+
+    if (query.length === 0) {
+      res.status(404).send("no se encontro el producto");
     } else {
-      const allProduct = await Product.findAll();
-      res.send(allProduct);
+      res.send(query);
     }
   } catch (error) {
     res.status(404).send(error);
+  }
+};
+
+const todos = async (req, res) => {
+  try {
+    const allProduct = await Product.findAll();
+    res.send(allProduct);
+  } catch (error) {
+    res.status(404).send("error al llamar a los productos");
   }
 };
 
@@ -37,4 +46,5 @@ const id = async (req, res) => {
 module.exports = {
   buscar,
   id,
+  todos,
 };

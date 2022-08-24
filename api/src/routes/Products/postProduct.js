@@ -1,6 +1,6 @@
 const { Product } = require("../../db");
-const { Type } = require("../../db");
 const { Op } = require("sequelize");
+
 module.exports = {
   crear: async (req, res) => {
     try {
@@ -16,7 +16,9 @@ module.exports = {
           image,
           description,
           quantity,
+          type,
         });
+
         res.send("congratulation");
       } else {
         res.status(404).send("el nombre ya existe");
