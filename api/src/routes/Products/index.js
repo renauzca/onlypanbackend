@@ -10,7 +10,7 @@ const { crear } = require("./postProduct");
 const { updateProduct } = require("./updateProduct");
 const { filterbyTypePrice } = require("./filterbyTypePrice");
 
-router.get("/range", rangePrice);
+router.get("/range", rangePrice)
 router.get("/price", filterByPrice);
 router.get("/type", filterByType);
 router.get("/typ", filterbyTypePrice);
