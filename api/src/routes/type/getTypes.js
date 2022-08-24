@@ -1,9 +1,8 @@
-const { Type } = require("../../db");
-const json = require("../../jsonData");
+const { Product } = require("../../db");
 
 const getTypes = async (req, res) => {
   try {
-    const product = json.panes;
+    const product = await Product.findAll();
     const productType = product.map(t=> t.type)
     const allProduct = new Set(productType)
     let all = []
