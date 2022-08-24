@@ -30,7 +30,7 @@ module.exports = (sequelize) => {
         allowNull: true,
         defaultValue: 0,
       },
-      type: {
+      type:{
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -38,6 +38,11 @@ module.exports = (sequelize) => {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
       },
+      score:{
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        defaultValue:1,
+      }
     },
     {
       timestamps: false,
