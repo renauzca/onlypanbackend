@@ -9,7 +9,9 @@ const { rangePrice } = require("./rangePrices");
 const { crear } = require("./postProduct");
 const { updateProduct } = require("./updateProduct");
 const { filterbyTypePrice } = require("./filterbyTypePrice");
+const { combinedFilters } = require("./combinedFilters");
 
+router.get("/combined", combinedFilters);
 router.get("/range", rangePrice);
 router.get("/price", filterByPrice);
 router.get("/type", filterByType);
