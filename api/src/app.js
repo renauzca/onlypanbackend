@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const routeProduct = require("./routes/Products");
 const routeUser = require("./routes/User");
+const routeType = require("./routes/type")
 
 require("./db.js");
 
@@ -28,6 +29,7 @@ server.use((req, res, next) => {
 
 server.use("/product", routeProduct);
 server.use("/user", routeUser);
+server.use("/type", routeType);
 
 server.use((err, req, res, next) => {
   // eslint-disable-line no-unused-vars

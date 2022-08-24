@@ -11,7 +11,11 @@ module.exports = (sequelize) => {
       },
       name: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
+      },
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: true,
       },
       image: {
         type: DataTypes.STRING,
@@ -29,7 +33,11 @@ module.exports = (sequelize) => {
       },
       address: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
+      },
+      phone: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
       },
       rol: {
         type: DataTypes.ENUM("user", "employee", "admin"),

@@ -1,4 +1,5 @@
 const { Product } = require("../../db");
+const { Type } = require("../../db");
 const { Op } = require("sequelize");
 module.exports = {
   crear: async (req, res) => {
@@ -14,7 +15,6 @@ module.exports = {
           price,
           image,
           description,
-          type,
           quantity,
         });
         res.send("congratulation");
