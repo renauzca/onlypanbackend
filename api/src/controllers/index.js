@@ -1,6 +1,6 @@
 const json = require("../jsonData");
 
-const { Product } = require("../db");
+const { Product, User } = require("../db");
 
 const addProductDB = async () => {
   try {
@@ -13,6 +13,16 @@ const addProductDB = async () => {
   }
 };
 
+const addUserDB = async(req, res) => {
+  try {
+    let user = await User.findAll();
+    user&await User.bulkCreate(json.users)
+  } catch (error) {
+    res.status(400).send({msg:error})
+  }
+}
+
 module.exports = {
   addProductDB,
+  addUserDB
 };
