@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       price: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       image: {
@@ -30,10 +30,19 @@ module.exports = (sequelize) => {
         allowNull: true,
         defaultValue: 0,
       },
-      type: {
+      type:{
         type: DataTypes.STRING,
         allowNull: false,
       },
+      isAvailable: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
+      },
+      score:{
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        defaultValue:1,
+      }
     },
     {
       timestamps: false,
