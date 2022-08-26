@@ -13,6 +13,6 @@ router.get("/", allUser)
 router.post("/signIn", middleware, signIn)
 router.post("/signUp", signUp)
 
-router.put("/delete/:id", middleware , policy.deleteUser, deleteUser)
+router.put("/delete/:id", middleware , policy.validate, deleteUser)
 
 module.exports = router;

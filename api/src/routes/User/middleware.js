@@ -3,7 +3,6 @@ const auth = require("./auth");
 const { User } = require("../../db");
 
 module.exports = (req, res, next) => {
-  //comprobacion de token uwu
   if (!req.headers.authorization) {
     res.status(401).json({ msg: "Acceso no autorizado" });
   } else {
