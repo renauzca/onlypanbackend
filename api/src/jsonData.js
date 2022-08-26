@@ -1,4 +1,15 @@
 module.exports = {
+  users:[
+    {
+      name:"Tony",
+      lastName:"Warrior",
+      image:"tonywarrior.jpg",
+      email:"tony@warrior.com",
+      password:"12345",
+      address:"La casa X con calle Y",
+      phone:310111
+    }
+  ],
   panes: [
     {
       name: "Pan de trigo",
