@@ -1,8 +1,8 @@
-const {Router} = require('express');
+const { Router } = require("express");
 const router = Router();
 
-const {payment} = require("./payment");
+const { payment } = require("./payment");
 
-router.get("/", payment);
+router.post("/", payment);
 
 module.exports = router;
