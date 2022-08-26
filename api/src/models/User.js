@@ -12,6 +12,15 @@ module.exports = (sequelize) => {
       name: {
         type: DataTypes.STRING,
         allowNull: true,
+        validate: {
+          isAlpha: {
+            msg: "El nombre solo puede contener letras"
+          },
+          len: {
+            args: [4, 100],
+            msg: "El nombre tiene que ser minimamente de dos caracters"
+          }
+        }
       },
       lastName: {
         type: DataTypes.STRING,
@@ -27,6 +36,11 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
+         validate: {
+        isEmail: {
+          msg: "El email tiene que ser un correo valido"
+        }
+      }
       },
       password: {
         type: DataTypes.STRING,
@@ -41,7 +55,7 @@ module.exports = (sequelize) => {
         allowNull: true,
       },
       rol: {
-        type: DataTypes.ENUM("user", "employee", "admin"),
+        type: DataTypes.ENUM("user", "admin"),
         defaultValue: "user",
         allowNull: true,
       },
