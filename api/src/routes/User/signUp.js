@@ -4,13 +4,15 @@ const jwt = require("jsonwebtoken");
 const auth = require("./auth");
 
 const signUp = (req, res) => {
-  const { email, password, rol } = req.body;
+  const {name, lastName, email, password, rol } = req.body;
   if (password.length >= 4) {
     let pass = bcrypt.hashSync(password, Number.parseInt(auth.rounds));
     User.create({
       password: pass,
       email: email,
-      rol:rol
+      rol:rol,
+      name:name,
+      lastName:lastName,
     })
       .then((user) => {
         let token = jwt.sign({ user: user }, auth.secret, {
