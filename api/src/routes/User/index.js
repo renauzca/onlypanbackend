@@ -8,11 +8,11 @@ const { signUp } = require("./signUp");
 
 const router = Router();
 
-router.get("/", middleware, allUser)
+router.get("/", allUser);
 
-router.post("/signIn", signIn)
-router.post("/signUp", signUp)
+router.post("/signIn", signIn);
+router.post("/signUp", signUp);
 
-router.put("/delete/:id", middleware , policy.validate, deleteUser)
+router.put("/delete/:id", middleware, policy.validate, deleteUser);
 
 module.exports = router;
