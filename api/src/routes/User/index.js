@@ -7,7 +7,7 @@ const { signUp } = require("./signUp");
 
 const router = Router();
 
-router.get("/", allUser)
+router.get("/", middleware, allUser)
 
 router.post("/signIn", signIn)
 router.post("/signUp", signUp)
