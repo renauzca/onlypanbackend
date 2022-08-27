@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
     res.status(401).json({ msg: "Acceso no autorizado" });
   } else {
     let token = req.headers.authorization.split(" ")[1];
-
+    
     jwt.verify(token, auth.secret, (err, decoded) => {
       if (err) {
         res.status(500).json({
