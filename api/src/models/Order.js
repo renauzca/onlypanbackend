@@ -4,10 +4,9 @@ module.exports = (sequelize) => {
   sequelize.define(
     "order",
     {
-      quantity: {
+      totalPrice: {
         type: DataTypes.INTEGER,
-        allowNull: true,
-        defaultValue: 0,
+       
       },
     },
   );
