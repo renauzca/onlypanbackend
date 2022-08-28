@@ -5,7 +5,8 @@ const auth = require("./auth");
 
 const signUp = (req, res) => {
   const {name, lastName, email, password, rol } = req.body;
-  if (password.length >= 4) {
+  let userExist = User.findOne({email: email});
+  if (password.length >= 4 && userExist) {
     let pass = bcrypt.hashSync(password, Number.parseInt(auth.rounds));
     User.create({
       password: pass,
@@ -25,12 +26,12 @@ const signUp = (req, res) => {
       })
       .catch((err) => {
         console.log(err);
-        res.status(500).json(err);
+        res.status(500).json("El usuario ya existe.");
       });
   } else {
     res
       .status(401)
-      .json({ msg: "la contraseña debe contener mas de cuatro carecteres" });
+      .json({ msg: "Contraseña o usuario incorrectos." });
   }
 };
 
