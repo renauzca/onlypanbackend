@@ -15,8 +15,10 @@ async function getScoreForProduct(req, res, next) {
           if (scores.length > 1) {
             res.json((scores.reduce(
                 (previousValue, currentValue) => previousValue.score + currentValue.score))/scores.length)
-          } else {
+          } else if (scores.length === 1) {
               res.json(scores[0].score)
+          } else {
+            res.json(0)
           }
     } catch (error) {
         res.status(404).send(error)
