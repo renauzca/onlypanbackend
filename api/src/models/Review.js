@@ -9,13 +9,6 @@ module.exports = (sequelize) => {
         allowNull: true,
         defaultValue: 0,
       },
-      description:{
-        type: DataTypes.STRING,
-      },
-      comment:{
-        type: DataTypes.BOOLEAN,
-        defaultValue:false
-      }
     },
   );
 };
