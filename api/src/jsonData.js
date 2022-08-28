@@ -5,9 +5,10 @@ module.exports = {
       lastName:"Warrior",
       image:"tonywarrior.jpg",
       email:"tony@warrior.com",
-      password:"12345",
+      password:"Ss12345",
       address:"La casa X con calle Y",
-      phone:310111
+      phone:310111,
+      rol:"admin"
     }
   ],
   panes: [
