@@ -3,15 +3,19 @@ const { User } = require("../../db");
 const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
-
-    const user = await User.findByPk({ where: { id: id } });
+    const user = await User.findByPk(id);
 
     if (!user) {
       res.status(404).send("Usuario no encontrado");
     } else {
-      user.update({
-        isAvailable: false,
-      });
+      await User.update(
+        {
+          isAvailable: false,
+        },
+        {
+          where: { id: id },
+        }
+      );
       res.send("Usuario eliminado correctamente!");
     }
   } catch (error) {
