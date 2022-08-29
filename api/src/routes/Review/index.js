@@ -11,7 +11,7 @@ const { updateReview } = require("./updateReview");
 router.post("/add", addReview);
 router.put("/put", updateReview);
 router.get("/get", getReviewForUserAndProduct);
-router.get("/get", getAllReview);
+router.get("/all", getAllReview);
 router.get("/user/:id", getAllReviewForUser);
 router.get("/product/:id", getScoreForProduct);
 
