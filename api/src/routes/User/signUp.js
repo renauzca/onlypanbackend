@@ -19,15 +19,10 @@ const signUp = (req, res) => {
         let token = jwt.sign({ user: user }, auth.secret, {
           expiresIn: auth.expires,
         });
-        sendMail(
-          1,
-          (name = "usuari@"),
-          email,
-          (message = "Este es el mensaje")
-        );
+        sendMail(1, "usuari@", email, (message = "Este es el mensaje"));
         sendMail(
           0,
-          (name = "usuario"),
+          "usuario",
           "onlypanarg1999@gmail.com",
           (message = "Este es el mensaje")
         );
