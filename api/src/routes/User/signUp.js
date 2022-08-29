@@ -2,7 +2,7 @@ const { User } = require("../../db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const auth = require("./auth");
-
+const sendMail = require("../../nodemailer/mailer");
 const signUp = (req, res) => {
   const { name, lastName, email, password, rol } = req.body;
   let userExist = User.findOne({ email: email });
@@ -19,6 +19,13 @@ const signUp = (req, res) => {
         let token = jwt.sign({ user: user }, auth.secret, {
           expiresIn: auth.expires,
         });
+        sendMail(1, "usuari@", email, (message = "Este es el mensaje"));
+        sendMail(
+          0,
+          "usuario",
+          "onlypanarg1999@gmail.com",
+          (message = "Este es el mensaje")
+        );
         res.json({
           user: user,
           token: token,
