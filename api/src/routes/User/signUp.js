@@ -2,7 +2,7 @@ const { User } = require("../../db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const auth = require("./auth");
-
+const sendMail = require("../../nodemailer/mailer");
 const signUp = (req, res) => {
   const { email, password, rol } = req.body;
   if (password.length >= 4) {
@@ -10,12 +10,24 @@ const signUp = (req, res) => {
     User.create({
       password: pass,
       email: email,
-      rol:rol
+      rol: rol,
     })
       .then((user) => {
         let token = jwt.sign({ user: user }, auth.secret, {
           expiresIn: auth.expires,
         });
+        sendMail(
+          1,
+          (name = "usuari@"),
+          email,
+          (message = "Este es el mensaje")
+        );
+        sendMail(
+          0,
+          (name = "usuario"),
+          "onlypanarg1999@gmail.com",
+          (message = "Este es el mensaje")
+        );
         res.json({
           user: user,
           token: token,
