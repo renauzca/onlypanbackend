@@ -4,13 +4,16 @@ const jwt = require("jsonwebtoken");
 const auth = require("./auth");
 const sendMail = require("../../nodemailer/mailer");
 const signUp = (req, res) => {
-  const { email, password, rol } = req.body;
-  if (password.length >= 4) {
+  const { name, lastName, email, password, rol } = req.body;
+  let userExist = User.findOne({ email: email });
+  if (password.length >= 4 && userExist) {
     let pass = bcrypt.hashSync(password, Number.parseInt(auth.rounds));
     User.create({
       password: pass,
       email: email,
       rol: rol,
+      name: name,
+      lastName: lastName,
     })
       .then((user) => {
         let token = jwt.sign({ user: user }, auth.secret, {
@@ -35,12 +38,10 @@ const signUp = (req, res) => {
       })
       .catch((err) => {
         console.log(err);
-        res.status(500).json(err);
+        res.status(500).json({ msg: "El usuario ya existe." });
       });
   } else {
-    res
-      .status(401)
-      .json({ msg: "la contraseña debe contener mas de cuatro carecteres" });
+    res.status(401).json({ msg: "Contraseña o usuario incorrectos." });
   }
 };
 

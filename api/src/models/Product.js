@@ -37,11 +37,6 @@ module.exports = (sequelize) => {
       isAvailable: {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
-      },
-      score:{
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        defaultValue:1,
       }
     },
     {

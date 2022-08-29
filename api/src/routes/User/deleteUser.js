@@ -1,13 +1,26 @@
 const { User } = require("../../db");
 
-const deleteUser = async (req,res)=>{
-    try {
-        all = "funciona"
-        res.send(all)
-    } catch (error) {
-        res.status(500).json({msg:"erorr al eliminar", error})
-    }
-   
-}
+const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findByPk(id);
 
-module.exports = {deleteUser}
+    if (!user) {
+      res.status(404).send("Usuario no encontrado");
+    } else {
+      await User.update(
+        {
+          isAvailable: false,
+        },
+        {
+          where: { id: id },
+        }
+      );
+      res.send("Usuario eliminado correctamente!");
+    }
+  } catch (error) {
+    res.status(500).json({ msg: "Error al eliminar", error });
+  }
+};
+
+module.exports = { deleteUser };
