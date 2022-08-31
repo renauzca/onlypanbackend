@@ -4,11 +4,11 @@ module.exports = (sequelize) => {
     sequelize.define(
         'cart',
         {
-            id_cart:{
+            id:{
                 type:DataTypes.INTEGER,
                 primaryKey: true,
-                autoIncrement: true, 
-            }
+                autoIncrement: true,
+            },
         }
     )
 }
