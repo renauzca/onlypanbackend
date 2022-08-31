@@ -10,16 +10,14 @@ module.exports = {
       });
 
       if (product.length === 0) {
-        await Product.create({
+        res.json(await Product.create({
           name,
           price,
           image,
           description,
           quantity,
           type,
-        });
-
-        res.send("congratulation");
+        }))
       } else {
         res.status(404).send("el nombre ya existe");
       }
