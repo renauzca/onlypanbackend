@@ -51,7 +51,7 @@ module.exports = (sequelize) => {
         allowNull: true,
       },
       phone: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: true,
       },
       rol: {
