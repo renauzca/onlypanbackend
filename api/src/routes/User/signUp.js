@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const auth = require("./auth");
 const sendMail = require("../../nodemailer/mailer");
 const signUp = (req, res) => {
-  const { name, lastName, email, password, rol } = req.body;
+  const { name, lastName, email, password, rol, phone ,address} = req.body;
   let userExist = User.findOne({ email: email });
   if (password.length >= 4 && userExist) {
     let pass = bcrypt.hashSync(password, Number.parseInt(auth.rounds));
@@ -14,6 +14,8 @@ const signUp = (req, res) => {
       rol: rol,
       name: name,
       lastName: lastName,
+      phone: phone,
+      address: address
     })
       .then((user) => {
         let token = jwt.sign({ user: user }, auth.secret, {
