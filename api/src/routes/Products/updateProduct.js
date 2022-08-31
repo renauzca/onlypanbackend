@@ -7,7 +7,7 @@ const updateProduct = async (req, res) => {
 
     let product = await Product.findByPk(id);
     if (product) {
-       await Product.update(
+       await product.update(
         {
           name: name,
           price: price,
