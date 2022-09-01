@@ -10,6 +10,7 @@ const { crear } = require("./postProduct");
 const { updateProduct } = require("./updateProduct");
 const { filterbyTypePrice } = require("./filterbyTypePrice");
 const { combinedFilters } = require("./combinedFilters");
+const { middADM } = require("./middAdm");
 
 
 router.get("/combined", combinedFilters);
@@ -20,8 +21,8 @@ router.get("/typ", filterbyTypePrice);
 router.get("/query", buscar);
 router.get("/", todos);
 router.get("/:id", id);
-router.post("/", crear);
-router.put("/delete/:id", deleteProduct);
-router.put("/update/:id", updateProduct);
+router.post("/",middADM, crear);
+router.put("/delete/:id",middADM, deleteProduct);
+router.put("/update/:id",middADM, updateProduct);
 
 module.exports = router;
