@@ -44,18 +44,18 @@ module.exports = (sequelize) => {
       },
       password: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       address: {
         type: DataTypes.STRING,
         allowNull: true,
       },
       phone: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: true,
       },
       rol: {
-        type: DataTypes.ENUM("user", "admin"),
+        type: DataTypes.STRING,
         defaultValue: "user",
         allowNull: true,
       },
