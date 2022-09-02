@@ -24,56 +24,33 @@ const cart = async(req, res) => {
 const updateCart = async(req, res) => {
     try{
         const {id} = req.params;
-        const {quantity, totalPrice} = req.body;
         
-        /* console.log(id+ ' por params')
-        let user = await User.findByPk(id);
-        console.log(id+ ' retorno de user') */
-        //let cart = await Cart.findOne({where:{userId:id}});
-       /*  console.log(typeof cart + ' retorno de cart')
-        cart = parseInt(cart) */
         await Cart.findOne({where:{userId:id}})
             
             .then(async(cart) => {
+               let pro = await ProductCart.findOne(
+                {
+                    where:{
+                        cartId:cart.id,
+                        productId:req.body.id    
+                    }});
                 
-                await ProductCart.findAll({where:{cartId:cart.dataValues.id}})
-                    .then(pro =>{
-                        if(pro){
-                            pro.forEach(p => {
-                                p.set(req.body)
-                                p.save();         
-                            })
-                            res.status(200).send(pro)
-                        }else{
-                            res.status(200).send('Usuario no tiene carrito');
-                        }
-
-                    })
-                /* .then(pro =>{
-                    console.log(pro)
-                    if(pro){
-                        pro.set(req.body);
-                        pro.save();
-                        res.status(200).send(pro);
-                    }else{
-                        res.status(200).send('Usuario no tiene carrito')
+               if(pro){
+                    await pro.update({
+                        quantity: req.body.quantity,
+                        totalPrice: req.body.totalPrice
                     }
-
-                }) */
-            })
-
-
-        /* console.log( typeof cart + ' retorno de cart')
-        let productCart = await ProductCart.findOne({where:{cartId:cart.cartId}})
-        console.log(productCart+' desde el productCart')
-        if(productCart){
-            productCart.set(req.body);
-            productCart.save();
-            res.status(200).send(productCart);
-        }else{
-            res.status(200).send('Usuario no tiene carrito')
-        } */
+                    )
+                    pro.save()
+                    res.status(200).send('Producto Modificado')
+                }
+            else{
+                res.status(200).send("Producto no encontrado");
+            }
+            }) 
+                    
     }catch(error){
+        console.log(error);
         throw new Error(error +' Error al cambiar datos del carrito')
     }
 }
