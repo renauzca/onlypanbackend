@@ -6,7 +6,7 @@ async function getOrders(req, res, next) {
     const user = userId ? { where: { userId } } : {};
     let orders = await Order.findAll({
       ...user,
-      attributes: ['totalPrice', 'createdAt'],
+      attributes: ['totalPrice', 'createdAt', 'delivery', 'status'],
       include: {
         model: Product,
         attributes: ['name'],
