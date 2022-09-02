@@ -5,8 +5,8 @@ const stripe = new Stripe(
 );
 
 const payment = async (req, res) => {
-  const { id, amount, delivery, obj, error } = req.body;
-
+  const { id, amount, delivery, obj } = req.body;
+  console.log(obj)
   try {
     const payment = await stripe.paymentIntents.create({
       amount,
@@ -20,6 +20,7 @@ const payment = async (req, res) => {
 
     obj.idProducts.forEach(async (prod) => {
       const idProd = await Product.findByPk(prod.id);
+      idProd.update({quantity:idProd.quantity - prod.quantity});
       newOrder.addProduct(idProd, { through: { quantity: prod.quantity } });
     });
 
