@@ -2,6 +2,7 @@ const {Cart, User, Product, ProductCart} = require('../../db');
 
 const cart = async(req, res) => {
     try{
+        console.log()
         const newCart = await Cart.create();
         const user = await User.findByPk(req.body.userId);
         await newCart.setUser(user);
@@ -55,7 +56,24 @@ const updateCart = async(req, res) => {
     }
 }
 
+const deleteCart = async(req, res) => {
+    const {id} = req.params;
+
+    try {
+        let cart = await Cart.findOne({where:{userId:id}})
+        if(cart){
+            cart.destroy({where:{userId:id}})
+            res.status(200).send('Borrado con exito')                
+        }else{
+            res.status(200).send('No se encontro un usuario con ese ID')
+        }
+    } catch (error) {
+        throw new Error(error + ' error al eliminar')
+    }
+}
+
 module.exports = {
     cart,
-    updateCart
+    updateCart,
+    deleteCart
 }
