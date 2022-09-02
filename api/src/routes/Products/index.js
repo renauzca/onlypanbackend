@@ -12,7 +12,6 @@ const { filterbyTypePrice } = require("./filterbyTypePrice");
 const { combinedFilters } = require("./combinedFilters");
 const { middADM } = require("./middAdm");
 
-
 router.get("/combined", combinedFilters);
 router.get("/range", rangePrice);
 router.get("/price", filterByPrice);

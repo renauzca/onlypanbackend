@@ -5,8 +5,7 @@ module.exports = (sequelize) => {
     "order",
     {
       totalPrice: {
-        type: DataTypes.INTEGER,
-       
+        type: DataTypes.INTEGER,       
       },
     },
   );
