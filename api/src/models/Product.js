@@ -34,10 +34,6 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      isAvailable: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: true,
-      }
     },
     {
       timestamps: false,

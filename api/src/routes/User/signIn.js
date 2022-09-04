@@ -15,13 +15,18 @@ const signIn = (req, res) => {
         res.status(404).json({ msg: "Usuario no encontrado" });
       } else {
         if (bcrypt.compareSync(password, user.password)) {
-          let token = jwt.sign({ user: user }, auth.secret, {
-            expiresIn: auth.expires,
-          });
-          res.json({
-            user: user,
-            token: token,
-          });
+          if (user.isAvailable === true) {
+            let token = jwt.sign({ user: user }, auth.secret, {
+              expiresIn: auth.expires,
+            });
+            res.json({
+              user: user,
+              token: token,
+            });
+            
+          } else {
+            res.status(403).json({ msg: "Estas baneado" });
+          }
         } else {
           res.status(401).json({ msg: "Contraseña incorrecta" });
         }
