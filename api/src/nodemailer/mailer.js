@@ -4,11 +4,11 @@ const { google } = require("googleapis");
 module.exports = function async(cualNotificacion, nombre, email, mensaje) {
   // Validación de google Oauth2
   const CLIENT_ID =
-    "341961291281-mkapt3jv4o46tmfa0k3dndhcblhvp8c8.apps.googleusercontent.com";
-  const CLIENT_SECRET = "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";
+    "228867186778-rd68neego9suo81rnsfd94npc48goijp.apps.googleusercontent.com";
+  const CLIENT_SECRET = "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";
   const REDIRECT_URI = "https://developers.google.com/oauthplayground";
   const REFRESH_TOKEN =
-    "1//04LrJ6Sp591dVCgYIARAAGAQSNwF-L9IrfoxlllswYqaY-b95yF1OQ3B7InydDkIkc17cvWyNpyf2LYk9PHuBHzsVnxjkH9-LN90";
+    "1//045D4-25bMQGSCgYIARAAGAQSNwF-L9IrHqe7_Wd0fjLED5mCuNdzay21SNQ3mmRA5YInNvw-_n58Gfc90cD1Kk1ppJN7cYW0h_I";
 
   const oAuth2Client = new google.auth.OAuth2(
     CLIENT_ID,
@@ -147,7 +147,7 @@ module.exports = function async(cualNotificacion, nombre, email, mensaje) {
     service: "gmail",
     auth: {
       type: "OAuth2",
-      user: "onlypanarg1999@gmail.com",
+      user: "facufernandez5481@gmail.com",
       clientId: CLIENT_ID,
       clientSecret: CLIENT_SECRET,
       refreshToken: REFRESH_TOKEN,
