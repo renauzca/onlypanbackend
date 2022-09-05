@@ -6,7 +6,6 @@ const stripe = new Stripe(
 
 const payment = async (req, res) => {
   const { id, amount, delivery, obj } = req.body;
-  console.log(obj)
   try {
     const payment = await stripe.paymentIntents.create({
       amount,
@@ -14,6 +13,7 @@ const payment = async (req, res) => {
       payment_method: id,
       confirm: true,
     });
+    const product = await Product.findAll();
     const newOrder = await Order.create({ totalPrice: amount, delivery });
     const buyer = await User.findByPk(obj.idUser);
     await newOrder.setUser(buyer);

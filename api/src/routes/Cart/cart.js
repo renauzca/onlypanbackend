@@ -2,7 +2,6 @@ const {Cart, User, Product, ProductCart} = require('../../db');
 
 const cart = async(req, res) => {
     try{
-        console.log()
         const newCart = await Cart.create();
         const user = await User.findByPk(req.body.userId);
         await newCart.setUser(user);
@@ -76,7 +75,6 @@ const deleteCartPro = async(req, res) => {
     const {id} = req.params;
     try{
         let cart = await Cart.findOne({where:{userId:id}});
-        console.log(cart.id)
         let pro = await ProductCart.findOne(
             {
                 where:{
