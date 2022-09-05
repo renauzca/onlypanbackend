@@ -8,7 +8,16 @@ const addProductDB = async () => {
   try {
     let product = await Product.findAll();
     if (product.length === 0) {
-      await Product.bulkCreate(json.panes);
+      json.panes.forEach(async(pro) => {
+        await Product.create({
+          name: pro.name,
+          price: pro.price,
+          image: pro.image,
+          description: pro.description,
+          type: pro.type,
+          quantity: Math.floor(Math.random() * 100) + 1
+        })
+      })
     }
   } catch (error) {
     console.log(error.message);
