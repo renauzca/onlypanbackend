@@ -9,6 +9,7 @@ const routerPayment = require('./routes/Payment');
 const routeReview = require('./routes/Review');
 const routeOrder = require('./routes/Orders');
 const routerCart = require('./routes/Cart')
+const routerFavorite = require('./routes/Favorites')
 
 require('./db.js');
 
@@ -39,6 +40,7 @@ server.use('/payment', routerPayment);
 server.use('/review', routeReview);
 server.use('/order', routeOrder);
 server.use('/cart', routerCart);
+server.use('/favorite', routerFavorite);
 
 server.use((err, req, res, next) => {
   // eslint-disable-line no-unused-vars
