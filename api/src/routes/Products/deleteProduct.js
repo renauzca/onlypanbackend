@@ -5,10 +5,11 @@ const deleteProduct = async (req, res) => {
     const { id } = req.params;
     let product = await Product.findByPk(id);
     if (product) {
-      product.destroy();
-      res.status(200).send("Producto eliminado");
+      product.isAvailable = false;
+      product.save();
+      res.status(200).send("Producto modificado");
     } else {
-      res.status(404).send("Producto no encontrado");
+      res.status(200).send("Producto no encontrado");
     }
   } catch (error) {
     res.status(400).send(error + "Problemas al borrar el producto");
