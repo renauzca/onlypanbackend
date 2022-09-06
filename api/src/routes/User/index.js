@@ -21,6 +21,6 @@ router.post("/google", google);
 // dataUpdate
 router.put("/modify/:id", middUser, updateUser);
 router.get("/rolmodify/:id", middADM, updateUserbyAdmin);
-router.put("/delete/:id", policy, deleteUser);
+router.get("/delete/:id", policy, deleteUser);
 
 module.exports = router;

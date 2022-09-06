@@ -8,14 +8,12 @@ const deleteUser = async (req, res) => {
     if (!user) {
       res.status(404).send("Usuario no encontrado");
     } else {
-      await User.update(
+      await user.update(
         {
-          isAvailable: false,
+          isAvailable: user.isAvailable === true ? false : true ,
         },
-        {
-          where: { id: id },
-        }
       );
+      await user.save();
       res.send("Usuario eliminado correctamente!");
     }
   } catch (error) {
