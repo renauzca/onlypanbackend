@@ -21,12 +21,12 @@ const signUp = (req, res) => {
         let token = jwt.sign({ user: user }, auth.secret, {
           expiresIn: auth.expires,
         });
-        sendMail(1, "usuari@",user.dataValues.email);
+        sendMail(1, user.dataValues.name ,user.dataValues.email);
         // sendMail(
         //   0,
         //   "usuario",
         //   "onlypanarg1999@gmail.com",
-        //   (message = "Este es el mensaje")
+        //   (message = "Este es el mensaje"),
         // );
         res.json({
           user: user,
