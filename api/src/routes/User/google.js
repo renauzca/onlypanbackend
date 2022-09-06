@@ -1,6 +1,7 @@
 const { User } = require('../../db');
 const jwt = require('jsonwebtoken');
 const auth = require('./auth');
+const sendMail = require("../../nodemailer/mailer");
 
 const google = async (req, res, next) => {
   try {
@@ -13,7 +14,9 @@ const google = async (req, res, next) => {
         lastName,
         image,
         password: undefined,
-      });
+      }).then(user=>{
+        sendMail(1, user.dataValues.name ,user.dataValues.email);
+      })
       if (!user)
         return res.status(400).json({ error: 'Error al crear la cuenta!' });
     }
@@ -24,6 +27,7 @@ const google = async (req, res, next) => {
       user: user,
       token,
     });
+    
   } catch (error) {
     next(error);
   }

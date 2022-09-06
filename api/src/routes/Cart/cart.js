@@ -48,14 +48,17 @@ const createCart = async (req, res) => {
 const updateCart = async (req, res) => {
   try {
     const { id } = req.params;
-    await Cart.findOne({ where: { userId: id } }).then(async (cart) => {
+    console.log(id)
+    await Cart.findOne({ where: { userId: id } })
+      .then(async (cart) => {
+        console.log(cart)
       let pro = await ProductCart.findOne({
         where: {
-          cartId: cart.id,
+          cartId: cart.dataValues.id,
           productId: req.body.id,
         },
       });
-
+      
       if (pro) {
         await pro.update({
           quantity: req.body.quantity,

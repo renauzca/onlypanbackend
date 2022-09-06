@@ -32,10 +32,10 @@ module.exports = {
           type,
         }))
       } else {
-        return res.status(404).send("el nombre ya existe");
+        res.status(404).send("el nombre ya existe");
       }
     } catch (error) {
-      res.status(404).send(error+{msg:'no se encontro nada'});
+      res.status(404).send(error);
     }
   },
 };

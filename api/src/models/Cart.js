@@ -8,7 +8,15 @@ module.exports = (sequelize) => {
                 type:DataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true,
+            }
+        },
+        {
+          indexes: [
+            {
+              unique: true,
+              fields: ['userId'],
             },
+          ],
         }
     )
 }

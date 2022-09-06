@@ -12,8 +12,8 @@ const updateUserbyAdmin = async (req, res) => {
     if (!user) {
       res.status(404).send("Usuario no encontrado");
     } else {
-      if (id === 1 || id === "1") {
-        res.send("No puedes modificar este usuario");
+      if (id == 1 ) {
+        res.status(500).send("No puedes modificar este usuario");
       } else {
         await user.update({
           rol: user.rol === "user" ? "admin" : "user",
