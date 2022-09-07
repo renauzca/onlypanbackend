@@ -1,7 +1,7 @@
 const json = require("../jsonData");
 const jwt = require("jsonwebtoken");
 const auth = require("../routes/User/auth");
-const { Product, User } = require("../db");
+const { Product, User, Cart } = require("../db");
 const bcrypt = require("bcrypt");
 
 const addProductDB = async () => {
@@ -30,7 +30,7 @@ const addUser = async (req, res) => {
     try {
       let password = "admin"
       let pass = bcrypt.hashSync(password, Number.parseInt(auth.rounds));
-      User.create({
+      let user = await User.create({
         image:
           "https://th.bing.com/th/id/OIP.DfGkWFqoP4UZ7BYCCTetIAAAAA?w=180&h=180&c=7&r=0&o=5&pid=1.7",
         name: "admin",
@@ -38,6 +38,8 @@ const addUser = async (req, res) => {
         email: "onlypanarg1999@gmail.com",
         rol: "admin",
       });
+      const newCart = await Cart.create();
+      newCart.setUser(user);
     } catch (error) {
       console.log(error);
     }

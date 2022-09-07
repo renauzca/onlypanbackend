@@ -9,20 +9,7 @@ module.exports = {
         where: { name: { [Op.iLike]: "%" + name + "%" } },
       });
       //console.log(product[0].dataValues.isAvailable);
-      if (!product[0].dataValues.isAvailable){
-        await Product.update({
-          name,
-          price,
-          image,
-          description,
-          type,
-          quantity,
-          isAvailable:true
-        },{
-          where:{id:product[0].dataValues.id}
-        })
-        return res.status(200).send('producto "creado"')
-      }else if (product.length === 0) {
+    if (product.length === 0) {
         res.json(await Product.create({
           name,
           price,
