@@ -131,7 +131,7 @@ module.exports = {
       price: 300,
       image:
         "https://assets.iprofesional.com/cdn-cgi/image/w=880,f=webp/https://assets.iprofesional.com/assets/jpg/2021/02/512110.jpg",
-      type: "sandwiche",
+      type: "sandwich",
     },
     {
       name: "Masas de Secas",

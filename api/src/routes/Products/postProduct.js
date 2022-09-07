@@ -8,18 +8,29 @@ module.exports = {
       const product = await Product.findAll({
         where: { name: { [Op.iLike]: "%" + name + "%" } },
       });
-
-      if (product.length === 0) {
-        await Product.create({
+      //console.log(product[0].dataValues.isAvailable);
+      if (!product[0].dataValues.isAvailable){
+        await Product.update({
+          name,
+          price,
+          image,
+          description,
+          type,
+          quantity,
+          isAvailable:true
+        },{
+          where:{id:product[0].dataValues.id}
+        })
+        return res.status(200).send('producto "creado"')
+      }else if (product.length === 0) {
+        res.json(await Product.create({
           name,
           price,
           image,
           description,
           quantity,
           type,
-        });
-
-        res.send("congratulation");
+        }))
       } else {
         res.status(404).send("el nombre ya existe");
       }

@@ -1,8 +1,10 @@
-const { Product } = require("../../db");
-const { Op } = require("sequelize");
+const { Product } = require('../../db');
+const { Op } = require('sequelize');
 
 const rangePrice = async (req, res) => {
-  const { priceMin, priceMax } = req.query;
+  let { priceMin, priceMax } = req.query;
+  priceMin = !priceMin ? 0 : priceMin;
+  priceMax = !priceMax ? 9999 : priceMax;
   try {
     let product = await Product.findAll({
       where: {
@@ -10,7 +12,6 @@ const rangePrice = async (req, res) => {
           [Op.between]: [priceMin, priceMax],
         },
       },
-      order: [["price", "ASC"]],
     });
     res.send(product);
   } catch (error) {
