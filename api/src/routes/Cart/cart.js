@@ -40,8 +40,8 @@ const createCart = async (req, res) => {
       res.send('carrito creado');
     } else res.status(200).send('El usuario ya tiene un carrito');
   } catch (error) {
-    console.log(error);
-    throw new Error(error + ' Error al llenar tabla de cart');
+    res.status(500).send(error+ 'error al crear el carrito')
+    
   }
 };
 
