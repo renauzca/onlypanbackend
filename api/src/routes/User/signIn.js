@@ -25,7 +25,7 @@ const signIn = (req, res) => {
             });
             
           } else {
-            res.status(403).json({ msg: "Estas baneado" });
+            res.status(403).json({ msg: "Tu cuenta ha sido suspendida" });
           }
         } else {
           res.status(401).json({ msg: "Contraseña incorrecta" });
