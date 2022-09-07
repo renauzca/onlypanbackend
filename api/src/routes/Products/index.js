@@ -24,7 +24,7 @@ router.get("/query", buscar);
 router.get("/", todos);
 router.get("/:id", id);
 router.post("/",middADM, crear);
-router.put("/delete/:id",middADM, deleteProduct);
+router.get("/delete/:id",middADM, deleteProduct);
 router.put("/update/:id",middADM, updateProduct);
 
 module.exports = router;
