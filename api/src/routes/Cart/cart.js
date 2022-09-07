@@ -23,7 +23,6 @@ const createCart = async (req, res) => {
     if (!findUserCart) {
       const newCart = await Cart.create();
       const user = await User.findByPk(id);
-      console.log(req.body);
       await newCart.setUser(user);
       if (req.body.length) {
         req.body.forEach(async (pro) => {
@@ -48,17 +47,14 @@ const createCart = async (req, res) => {
 const updateCart = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(id)
-    await Cart.findOne({ where: { userId: id } })
-      .then(async (cart) => {
-        console.log(cart)
+    await Cart.findOne({ where: { userId: id } }).then(async (cart) => {
       let pro = await ProductCart.findOne({
         where: {
           cartId: cart.dataValues.id,
           productId: req.body.id,
         },
       });
-      
+
       if (pro) {
         await pro.update({
           quantity: req.body.quantity,
@@ -101,7 +97,6 @@ const deleteCart = async (req, res) => {
 
 const deleteCartPro = async (req, res) => {
   const { id } = req.params;
-
   try {
     let cart = await Cart.findOne({ where: { userId: id } });
     let pro = await ProductCart.findOne({
@@ -117,6 +112,7 @@ const deleteCartPro = async (req, res) => {
       res.status(500).send('No se encontro un producto con ese ID');
     }
   } catch (error) {
+    console.log(error);
     throw new Error(error + ' error al eliminar un producto');
   }
 };
