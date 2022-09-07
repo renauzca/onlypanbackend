@@ -13,7 +13,7 @@ const google = async (req, res, next) => {
         name,
         lastName,
         image,
-        password: undefined,
+        password: 'undefined',
       }).then((user) => {
         sendMail(1, user.dataValues.name, user.dataValues.email);
       });
