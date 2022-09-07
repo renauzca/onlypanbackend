@@ -11,9 +11,10 @@ const { updateProduct } = require("./updateProduct");
 const { filterbyTypePrice } = require("./filterbyTypePrice");
 const { combinedFilters } = require("./combinedFilters");
 const { middADM } = require("./middAdm");
-const {recycle} = require("./recycleProduct")
+const {recycle, addProduct} = require("./recycleProduct")
 
 router.get("/recycle", recycle)
+router.get("/addProduct/:id", addProduct)
 router.get("/combined", combinedFilters);
 router.get("/range", rangePrice);
 router.get("/price", filterByPrice);
