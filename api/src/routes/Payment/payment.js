@@ -13,9 +13,11 @@ const payment = async (req, res) => {
       payment_method: id,
       confirm: true,
     });
-    const product = await Product.findAll();
+    console.log(obj);
     const newOrder = await Order.create({ totalPrice: amount, delivery });
     const buyer = await User.findByPk(obj.idUser);
+    buyer.update({address : obj.direccion})
+    buyer.update({phone : obj.numero})
     await newOrder.setUser(buyer);
 
     obj.idProducts.forEach(async (prod) => {
