@@ -13,21 +13,24 @@ const google = async (req, res, next) => {
         name,
         lastName,
         image,
-        password: undefined,
-      }).then(user=>{
-        sendMail(1, user.dataValues.name ,user.dataValues.email);
-      })
+        password: 'undefined',
+      }).then((user) => {
+        sendMail(1, user.dataValues.name, user.dataValues.email);
+      });
       if (!user)
         return res.status(400).json({ error: 'Error al crear la cuenta!' });
     }
-    let token = jwt.sign({ user: user }, auth.secret, {
-      expiresIn: auth.expires,
-    });
-    res.json({
-      user: user,
-      token,
-    });
-    
+    if (user.dataValues.isAvailable) {
+      let token = jwt.sign({ user: user }, auth.secret, {
+        expiresIn: auth.expires,
+      });
+      return res.json({
+        user: user,
+        token,
+      });
+    } else {
+      return res.status(404).send({ msg: 'Tu cuenta ha sido suspendida' });
+    }
   } catch (error) {
     next(error);
   }

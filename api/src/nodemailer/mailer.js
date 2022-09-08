@@ -94,7 +94,7 @@ module.exports = function async(cualNotificacion, nombre, email, mensaje) {
             <div style="padding: 20px 10px 20px 10px;">
                 <!-- Imagen inicial -->
                 <div style="background-color: #000000; padding: 10px 0px 10px 0px; width: 100%; text-align: center;">
-                    <img src="cid:profile" alt="profile" style="width: 200px; height: 100px;">
+                    <img src="cid:descargar" alt="profile" style="width: 200px; height: 100px;">
                 </div>
                 <!-- Imagen inicial -->
     
@@ -107,19 +107,11 @@ module.exports = function async(cualNotificacion, nombre, email, mensaje) {
                     <p>Gracias por su tiempo.</p>
                     <p style="margin-bottom: 50px;"><i>Atentamente:</i><br>Equipo Only Pan</p>
     
-                    <!-- Botón -->
-                    <a class="claseBoton" href="https://www.google.com/">Only Pan Website</a>
                 </div>
                 <!-- Contenido principal -->
     
                 <!-- Footer -->
                 <div style="background-color: #282828; color: #ffffff; padding: 5px 0px 0px 0px; width: 100%; text-align: center;">
-                    <!-- Redes sociales -->
-                    <a href="https://www.facebook.com" class="contA"><img src="cid:fb" class="imag" /></a>
-                    <a href="https://www.instagram.com" class="contA"><img src="cid:ig" class="imag" /></a>
-                    <a href="https://wa.me/51978087988" class="contA"><img src="cid:wapp" class="imag" /></a>
-                    <a href="mailto:onlypanarg1999@gmail.com" class="contA"><img src="cid:em" class="imag" /></a>
-                    <!-- Redes sociales -->
     
                     <h4>Soporte</h4>
                     <p style="font-size: 13px; padding: 0px 20px 0px 20px;">
@@ -167,29 +159,9 @@ module.exports = function async(cualNotificacion, nombre, email, mensaje) {
       html: mensajeHtml, // html body
       attachments: [
         {
-          filename: "profile.png",
-          path: "../api/src/img/profile.png",
-          cid: "profile",
-        },
-        {
-          filename: "fb.png",
-          path: "../api/src/img/fb.png",
-          cid: "fb",
-        },
-        {
-          filename: "ig.png",
-          path: "../api/src/img/ig.png",
-          cid: "ig",
-        },
-        {
-          filename: "em.png",
-          path: "../api/src/img/em.png",
-          cid: "em",
-        },
-        {
-          filename: "wapp.png",
-          path: "../api/src/img/wapp.png",
-          cid: "wapp",
+          filename: "descargar.jpg",
+          path: "../api/src/img/descargar.jpg",
+          cid: "descargar",
         },
       ],
     })
