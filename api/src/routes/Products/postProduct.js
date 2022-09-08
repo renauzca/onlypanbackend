@@ -10,7 +10,6 @@ module.exports = {
         where: { name: { [Op.iLike]: "%" + name + "%" },isAvailable: true },
         
       });
-      console.log(product)
       if (product.length === 0 ) {
         res.json(
           await Product.create({
