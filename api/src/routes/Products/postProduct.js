@@ -5,12 +5,13 @@ module.exports = {
   crear: async (req, res) => {
     try {
       const { name, price, image, description, type, quantity } = req.body;
+      console.log(req.body)
       const product = await Product.findAll({
-        where: { name: { [Op.iLike]: "%" + name + "%" } },
-        isAvailable:true
-
+        where: { name: { [Op.iLike]: "%" + name + "%" },isAvailable: true },
+        
       });
-      if (product.length === 0) {
+      console.log(product)
+      if (product.length === 0 ) {
         res.json(
           await Product.create({
             name,
