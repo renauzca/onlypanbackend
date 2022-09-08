@@ -1,7 +1,7 @@
 const { User } = require('../../db');
 const jwt = require('jsonwebtoken');
 const auth = require('./auth');
-const sendMail = require("../../nodemailer/mailer");
+const sendMail = require('../../nodemailer/mailer');
 
 const google = async (req, res, next) => {
   try {
