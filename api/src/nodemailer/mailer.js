@@ -137,10 +137,10 @@ module.exports = function async(cualNotificacion, nombre, email, mensaje) {
   // Configurar el correo electrónico
   const accessToken = async () => await oAuth2Client.getAccessToken();
   const transporter = nodemailer.createTransport({
-    host: DB_HOST||3001,
-    port:587||PORT,
+    host: "smtp.gmail.com", // con gmail: smtp.gmail.com
+    port: 465, // con gmail 465
+    // secure: true, // con gmail: true
     service: "gmail",
-    secure: false,
     auth: {
       type: "OAuth2",
       user: "facufernandez5481@gmail.com",
