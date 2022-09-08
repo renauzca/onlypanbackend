@@ -11,6 +11,7 @@ const buscar = async (req, res) => {
         name: {
           [Op.iLike]: "%" + name + "%",
         },
+        isAvailable:true
       },
     });
 
