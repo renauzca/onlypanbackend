@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
+const {DB_HOST,PORT} = process.env;
 
 module.exports = function async(cualNotificacion, nombre, email, mensaje) {
   // Validación de google Oauth2
@@ -136,7 +137,10 @@ module.exports = function async(cualNotificacion, nombre, email, mensaje) {
   // Configurar el correo electrónico
   const accessToken = async () => await oAuth2Client.getAccessToken();
   const transporter = nodemailer.createTransport({
+    host: DB_HOST||3001,
+    port:587||PORT,
     service: "gmail",
+    secure: false,
     auth: {
       type: "OAuth2",
       user: "facufernandez5481@gmail.com",
