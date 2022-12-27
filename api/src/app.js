@@ -11,7 +11,7 @@ const routeOrder = require('./routes/Orders');
 const routerCart = require('./routes/Cart')
 const routerFavorite = require('./routes/Favorites')
 const cors = require("cors");
-app.use(cors());
+server.use(cors());
 
 require('./db.js');
 
