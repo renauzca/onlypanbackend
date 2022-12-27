@@ -10,8 +10,8 @@ const routeReview = require('./routes/Review');
 const routeOrder = require('./routes/Orders');
 const routerCart = require('./routes/Cart')
 const routerFavorite = require('./routes/Favorites')
-const cors = require("cors");
-server.use(cors());
+// const cors = require("cors");
+// server.use(cors());
 
 require('./db.js');
 
